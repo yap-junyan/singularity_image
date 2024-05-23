@@ -1,0 +1,13 @@
+FROM mrcieu/twosamplemr:latest
+
+# Copy the R script file
+COPY install_R_packages.R /tmp/packages.R
+
+# Install packages using the script
+RUN Rscript /tmp/packages.R
+
+WORKDIR /test
+
+# Copy your R files or project directory
+COPY . /test
+
